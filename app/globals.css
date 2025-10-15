@@ -1,26 +1,194 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+html {
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  --background: #faf9f7;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #2E3192;              /* Hadaf blue */
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f5f5f5;
+  --muted-foreground: #666666;
+  --accent: #F26522;                /* Hadaf orange */
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #F26522;                  /* Hadaf orange */
+  --chart-1: #2E3192;               /* Hadaf blue */
+  --chart-2: #F26522;               /* Hadaf orange */
+  --chart-3: #FF7A3D;               /* Hadaf orange-light */
+  --chart-4: #4A4DB8;               /* Hadaf blue-light */
+  --chart-5: #D54A0F;               /* Hadaf orange-dark */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #2E3192;        /* Hadaf blue */
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #F26522;           /* Hadaf orange */
+}
+
+.dark {
+  --background: oklch(0.15 0.05 264.695);     /* Darker background with blue tint */
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.20 0.05 265.755);            /* Dark card with blue tint */
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.20 0.05 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.55 0.15 264.364);         /* Hadaf blue in dark mode */
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.25 0.05 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.25 0.05 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.65 0.18 25.216);            /* Hadaf orange in dark mode */
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.65 0.18 25.216);             /* Hadaf orange ring */
+  --chart-1: oklch(0.55 0.15 264.364);         /* Hadaf blue */
+  --chart-2: oklch(0.65 0.18 25.216);          /* Hadaf orange */
+  --chart-3: oklch(0.70 0.15 25.216);          /* Hadaf orange-light */
+  --chart-4: oklch(0.60 0.15 264.364);          /* Hadaf blue-light */
+  --chart-5: oklch(0.60 0.18 25.216);          /* Hadaf orange-dark */
+  --sidebar: oklch(0.20 0.05 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.55 0.15 264.364);  /* Hadaf blue */
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.25 0.05 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.65 0.18 25.216);     /* Hadaf orange */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif, Arial, Helvetica;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-gradient {
+    @apply bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-400 hover:to-blue-500 text-white shadow-lg 
+           transform 
+           duration-300 
+           ease-in-out;
+  }
+
+  .btn-outline {
+    @apply border-2 border-gray-300 dark:border-gray-600 hover:border-orange-500 hover:text-orange-500 transition-all;
+  }
+  
+  .color-gradient {
+    @apply bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-400 hover:to-blue-500 text-white;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange-500 via-orange-400 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg transition-shadow duration-300 ease-in-out;
+  }
+
+  .hadaf-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 transition-colors;
+  }
+
+  .hadaf-accent {
+    @apply bg-orange-500 text-white hover:bg-orange-600 transition-colors;
+  }
+
+  .hadaf-text-primary {
+    @apply text-blue-600;
+  }
+
+  .hadaf-text-accent {
+    @apply text-orange-500;
+  }
+}
+
+@layer utilities {
+  .center-flex {
+    @apply flex items-center justify-center;
+  }
+
+  .center-grid {
+    @apply grid place-items-center;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-bg-light {
+    @apply bg-gradient-to-br from-orange-50 to-blue-50 dark:from-blue-900 dark:to-blue-800;
+  }
+
+  .hadaf-bg-gradient {
+    @apply bg-gradient-to-r from-orange-500 to-blue-600;
+  }
+
+  .hadaf-bg-light {
+    @apply bg-gradient-to-br from-orange-50 via-white to-blue-50;
+  }
 }
