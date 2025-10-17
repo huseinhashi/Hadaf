@@ -1,8 +1,7 @@
 "use client";
 
-import Products from "@/components/Products";
 import { motion } from "framer-motion";
-import { Package, Coffee, Factory, Zap, Shield, Target, Cog, Wrench, CheckCircle, Star } from "lucide-react";
+import { Package, Coffee, Factory, Shield, Target, Cog, Wrench, CheckCircle } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
 

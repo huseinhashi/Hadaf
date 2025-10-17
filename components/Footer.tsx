@@ -99,7 +99,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Hadaf Industrial Cups</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-              Leading Somalia's industrial cup manufacturing with precision, quality, and innovation. 
+              Leading Somalia&apos;s industrial cup manufacturing with precision, quality, and innovation. 
               We transform raw materials into reliable containers that power businesses across the region.
             </p>
             <div className="flex items-center space-x-4">

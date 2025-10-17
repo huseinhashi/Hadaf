@@ -63,7 +63,7 @@ const About = () => {
           </h2>
           
           <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Leading Somalia's industrial cup manufacturing with precision, quality, and innovation. 
+            Leading Somalia&apos;s industrial cup manufacturing with precision, quality, and innovation. 
             We transform raw materials into reliable containers that power businesses across the region.
           </p>
         </motion.div>
@@ -147,7 +147,7 @@ const About = () => {
                 
                 <p>
                   From small startups to large enterprises, we understand that every business needs reliable, 
-                  durable containers. That's why we've invested in state-of-the-art equipment and trained 
+                  durable containers. That&apos;s why we&apos;ve invested in state-of-the-art equipment and trained 
                   our team to deliver products that meet the highest standards.
                 </p>
               </div>

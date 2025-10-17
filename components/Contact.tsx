@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, ArrowRight, MessageCircle, Clock, Building, Users } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, MessageCircle, Clock } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
@@ -62,7 +62,7 @@ const Contact = () => {
           </h2>
           
           <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Ready to discuss your industrial cup needs? We're here to help you find the perfect solution for your business.
+            Ready to discuss your industrial cup needs? We&apos;re here to help you find the perfect solution for your business.
           </p>
         </motion.div>
 

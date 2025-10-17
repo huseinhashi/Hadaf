@@ -5,18 +5,13 @@ import {
   Factory, 
   Shield, 
   Award, 
-  CheckCircle, 
   ArrowRight,
-  Calendar,
   MapPin,
   Target,
   Heart,
   Eye,
   Zap,
-  Cog,
-  Package,
-  Star,
-  Clock
+  Cog
 } from "lucide-react";
 import Image from "next/image";
 
@@ -99,7 +94,7 @@ const AboutPage = () => {
     {
       icon: Factory,
       title: "Customer Focus",
-      description: "Our customers' success is our success. We build lasting partnerships.",
+      description: "Our customers&apos; success is our success. We build lasting partnerships.",
     },
     {
       icon: Shield,
@@ -134,7 +129,7 @@ const AboutPage = () => {
             </h1>
             
             <p className="text-gray-600 dark:text-gray-300 text-xl leading-relaxed">
-              Building Somalia's industrial future, one cup at a time. Discover our journey, 
+              Building Somalia&apos;s industrial future, one cup at a time. Discover our journey, 
               our process, and the people behind our success.
             </p>
           </motion.div>
@@ -154,7 +149,7 @@ const AboutPage = () => {
               Our <span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">Journey</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
-              From humble beginnings to becoming Somalia's leading industrial cup manufacturer
+              From humble beginnings to becoming Somalia&apos;s leading industrial cup manufacturer
             </p>
           </motion.div>
 
@@ -325,7 +320,7 @@ const AboutPage = () => {
               Ready to Work <span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">Together?</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-8">
-              Let's discuss how Hadaf Industrial Cups can support your business needs
+              Let&apos;s discuss how Hadaf Industrial Cups can support your business needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl">
