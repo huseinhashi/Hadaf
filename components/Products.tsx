@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Package, Coffee, Factory, Zap, Shield, Target, Cog, Wrench } from "lucide-react";
+import { ArrowRight, Coffee, Factory, Shield, Target, Cog, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -144,7 +144,6 @@ const Products = () => {
             }}
           >
             {duplicatedProducts.map((product, index) => {
-              const Icon = product.icon;
               return (
                 <motion.div
                   key={`${product.id}-${index}`}

@@ -27,7 +27,7 @@ const IndustrialBackground = () => {
 
   // Generate random positions for icons
   const generateIconPositions = () => {
-    return icons.map((icon, index) => ({
+    return icons.map((icon) => ({
       ...icon,
       x: Math.random() * 100,
       y: Math.random() * 100,
