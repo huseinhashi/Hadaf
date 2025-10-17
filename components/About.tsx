@@ -1,108 +1,200 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Github, Terminal, Heart } from "lucide-react";
+import { Factory, Shield, Award, Users, CheckCircle, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const About = () => {
+  const features = [
+    {
+      icon: Factory,
+      title: "State-of-the-Art Manufacturing",
+      description: "Advanced production facilities with precision machinery"
+    },
+    {
+      icon: Shield,
+      title: "Quality Assurance",
+      description: "Rigorous testing and quality control processes"
+    },
+    {
+      icon: Award,
+      title: "Industry Standards",
+      description: "Meeting international manufacturing standards"
+    },
+    {
+      icon: Users,
+      title: "Expert Team",
+      description: "Skilled professionals with years of experience"
+    }
+  ];
+
   const stats = [
-    { value: "3+", label: "Years Experience", icon: Terminal },
-    { value: "50+", label: "Projects Completed", icon: Code2 },
-    { value: "95%", label: "Client Satisfaction", icon: Heart },
-    { value: "40+", label: "Github Repos", icon: Github },
+    { value: "5+", label: "Years of Excellence", suffix: "" },
+    { value: "1000+", label: "Daily Production", suffix: " cups" },
+    { value: "98%", label: "Quality Rate", suffix: "" },
+    { value: "50+", label: "Business Partners", suffix: "" },
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4 flex flex-wrap items-center justify-center lg:justify-between">
-        {/* Image Section */}
-        <motion.div
-          initial={{ x: -50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          className="w-full md:w-full lg:w-[45%] hidden md:flex justify-center mb-8 md:mb-12"
-        >
-          <div className="relative w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[384px] md:h-[384px]">
-            {/* Gradient Containers */}
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/40 to-purple-400/40 transform rotate-6" />
-            <div className="absolute inset-0 rounded-lg border-4 border-purple-400/50 transform -rotate-6" />
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-900 dark:via-gray-900 dark:to-slate-800 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
 
-            {/* Image Container */}
-            <div className="absolute inset-0 rounded-lg overflow-hidden border-4 border-blue-400">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
+            <Factory className="w-4 h-4 text-orange-400 mr-2" />
+            <span className="text-orange-400 text-sm font-medium">Manufacturing Excellence</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="text-gray-900 dark:text-white">About </span>
+            <span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">Hadaf</span>
+          </h2>
+          
+          <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            Leading Somalia's industrial cup manufacturing with precision, quality, and innovation. 
+            We transform raw materials into reliable containers that power businesses across the region.
+          </p>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+          {/* Left Side - Image and Stats */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            {/* Main Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/about.jpg" // Replace with your image path
-                alt="Husein Hashi"
-                width={384} // Match the original width
-                height={384} // Match the original height
-                className="object-cover w-full h-full "
-              />
+                  src="/images/img_4.jpg"
+                  alt="Hadaf Industrial Manufacturing Facility"
+                  width={600}
+                  height={400}
+                  className="w-full h-[300px] md:h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                
+                {/* Floating Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg"
+                >
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-800 font-semibold">ISO Certified</span>
+                  </div>
+                </motion.div>
+              </div>
             </div>
 
-            {/* Floating Badges (Pure Colors) */}
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat, index) => (
             <motion.div
+                  key={index}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-r from-purple-400 to-[#DB7447] rounded-xl border-2 border-white/20 shadow-lg"
-            />
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-r from-[#DB7447] to-purple-400 rounded-xl border-2 border-white/20 shadow-lg"
-            />
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * index }}
+                  className="bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-4 text-center shadow-sm dark:shadow-none"
+                >
+                  <div className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-1">
+                    {stat.value}
+                    <span className="text-orange-400">{stat.suffix}</span>
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</div>
+                </motion.div>
+              ))}
           </div>
         </motion.div>
 
-        {/* Content Section */}
+          {/* Right Side - Content */}
         <motion.div
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="w-full md:w-full lg:w-[50%] px-4 md:px-8"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-            About Me
-          </h2>
-          <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-            I&apos;m{" "}
-            <span className="font-semibold text-white">Husein Hashi</span>, a
-            full-stack developer with 3+ years of experience building scalable
-            web and mobile apps. Based in Somalia, I offer affordable,
-            high-quality solutions for startups and small businesses.
-          </p>
-          <p className="text-gray-400 italic text-sm sm:text-base mb-8">
-            Fun Fact: I debug code faster than I brew my coffee, but both are
-            essential for my day!
-          </p>
+            className="space-y-8"
+          >
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                Precision Manufacturing for <span className="text-orange-400">Modern Business</span>
+              </h3>
+              
+              <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p>
+                  At Hadaf Industrial Cups, we combine traditional craftsmanship with modern manufacturing techniques 
+                  to produce industrial cups that exceed expectations. Our commitment to quality and precision has 
+                  made us the trusted choice for businesses across Somalia.
+                </p>
+                
+                <p>
+                  From small startups to large enterprises, we understand that every business needs reliable, 
+                  durable containers. That's why we've invested in state-of-the-art equipment and trained 
+                  our team to deliver products that meet the highest standards.
+                </p>
+              </div>
+            </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
+            {/* Features List */}
+            <div className="space-y-4">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
               return (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex items-center space-x-4"
-                >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/10 rounded-full flex items-center justify-center">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * index }}
+                    className="flex items-start space-x-4"
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-orange-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      {stat.value}
-                    </h3>
-                    <p className="text-gray-400 text-sm sm:text-base">
-                      {stat.label}
-                    </p>
+                      <h4 className="text-gray-900 dark:text-white font-semibold mb-1">{feature.title}</h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{feature.description}</p>
                   </div>
                 </motion.div>
               );
             })}
           </div>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <a
+                href="/about"
+                className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Learn More About Our Process
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </motion.div>
         </motion.div>
+        </div>
       </div>
     </section>
   );

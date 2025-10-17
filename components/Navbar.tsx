@@ -3,17 +3,19 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 import ThemeToggle from "./theme-toggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme();
 
   const navItems = [
-    { name: "Products", href: "#" },
-    { name: "AI Tools", href: "#" },
-    { name: "Features", href: "#" },
-    { name: "Solutions", href: "#" },
-    { name: "Resources", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -21,12 +23,17 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-600 rounded-md"></div>
-            <span className="font-semibold text-base sm:text-lg text-gray-800 dark:text-white">
-              Hadaf
-            </span>
-          </div>
+          <Link href="/" className="flex items-center group">
+            <div className="w-48 h-12 sm:w-56 sm:h-14 relative group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src={theme === "dark" ? "/Logo/Orange.png" : "/Logo/Logo.png"}
+                alt="Hadaf Industrial Cup Logo"
+                width={224}
+                height={56}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
@@ -34,7 +41,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm xl:text-base text-gray-700 dark:text-gray-300 hover:text-orange-500 font-medium transition-colors"
+                className="text-base xl:text-lg text-gray-700 dark:text-gray-300 hover:text-orange-500 font-medium transition-colors"
               >
                 {item.name}
               </Link>
@@ -43,12 +50,12 @@ const Navbar = () => {
 
           {/* Right buttons */}
           <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
-            <a href="#" className="text-xs lg:text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors">
-              Try Online Version
+            <a href="/contact" className={`px-3 py-1.5 lg:px-4 lg:py-2 ${theme === "dark" ? "bg-orange-500 text-white" : "bg-blue-500 text-white"} rounded-full hover:bg-orange-600 hover:text-white text-xs lg:text-sm font-medium transition-colors`}>
+              Get Your Now
             </a>
-            <button className="px-3 py-1.5 lg:px-4 lg:py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 text-xs lg:text-sm font-medium transition-colors">
-              Download
-            </button>
+            <a href="/contact" className="px-3 py-1.5 lg:px-4 lg:py-2 bg-transparent border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white text-xs lg:text-sm font-medium transition-colors">
+              Contact
+            </a>
             <ThemeToggle />
           </div>
 
@@ -77,20 +84,20 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:text-orange-500 font-medium py-1"
+                className="block text-base sm:text-lg text-gray-700 dark:text-gray-300 hover:text-orange-500 font-medium py-1"
+                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <a
-              href="#"
-              className="block text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium mt-3 border-t border-gray-100 dark:border-gray-700 pt-3 hover:text-orange-500 transition-colors"
-            >
-              Try Online Version
-            </a>
-            <button className="mt-3 w-full px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 text-sm font-medium transition-colors">
-              Download
-            </button>
+            <div className="mt-3 border-t border-gray-100 dark:border-gray-700 pt-3 space-y-2">
+              <a href="/contact" className="w-full px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 text-sm font-medium transition-colors block text-center">
+                Get Your Now
+              </a>
+              <a href="/contact" className="w-full px-4 py-2 bg-transparent border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white text-sm font-medium transition-colors block text-center">
+                Contact
+              </a>
+            </div>
           </div>
         </motion.div>
       )}

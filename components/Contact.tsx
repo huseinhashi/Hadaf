@@ -1,300 +1,262 @@
-// "use client";
+"use client";
 
-// import { motion } from "framer-motion";
-// import { Button } from "@/components/ui/button";
-// import {
-//   Card,
-//   CardContent,
-//   CardDescription,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card";
-// import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
-// import { Input } from "@/components/ui/input";
-// import { Textarea } from "@/components/ui/textarea";
-// import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
-// import { useState } from "react";
-// import { useForm, FormProvider, SubmitHandler } from "react-hook-form"; // Import useForm and FormProvider
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, ArrowRight, MessageCircle, Clock, Building, Users } from "lucide-react";
 
-// const contactInfo = [
-//   {
-//     icon: Phone,
-//     title: "Phone",
-//     value: "+252 (612) 995362",
-//     description: "All the days of the week from 9am to 5pm",
-//     link: "tel:+252612995362",
-//   },
-//   {
-//     icon: Mail,
-//     title: "Email",
-//     value: "huseinarahman6@gmail.com",
-//     description: "Online support",
-//     link: "mailto:huseinarahman6@gmail.com",
-//   },
-//   {
-//     icon: MapPin,
-//     title: "Office",
-//     value: "TBL",
-//     description: "to be determined later",
-//     link: "https://wa.me/252612995362", // WhatsApp URL with country code and number
-//   },
-//   {
-//     icon: Clock,
-//     title: "Working Hours",
-//     value: "9:00 AM - 5:00 PM",
-//     description: "All the days of the week",
-//     link: "https://wa.me/252612995362",
-//   },
-// ];
+const Contact = () => {
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Call Us",
+      value: "+252 61 123 4567",
+      description: "Speak with our team",
+      href: "tel:+252615091123",
+    },
+    {
+      icon: Mail,
+      title: "Email Us",
+      value: "hadafgtc@gmail.com",
+      description: "Send us a message",
+      href: "mailto:hadafgtc@gmail.com",
+    },
+    {
+      icon: MapPin,
+      title: "Visit Us",
+      value: "Mogadishu, Somalia",
+      description: "Our manufacturing facility",
+      href: "#map",
+    },
+  ];
 
-// const services = [
-//   {
-//     title: "Web Development",
-//     description: "Full-stack development with modern technologies",
-//   },
-//   {
-//     title: "Payment Integration",
-//     description: "User -centered design solutions",
-//   },
-//   {
-//     title: "Consultation",
-//     description: "Technical architecture and strategy",
-//   },
-// ];
+  const businessHours = [
+    { day: "Monday - Friday", hours: "8:00 AM - 6:00 PM" },
+    { day: "Saturday", hours: "9:00 AM - 4:00 PM" },
+    { day: "Sunday", hours: "Closed" },
+  ];
 
-// const Contact = () => {
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-//   // Pass the ContactFormData type to useForm
-//   const methods = useForm<ContactFormData>(); // Specify the type here
+  return (
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-900 dark:via-gray-900 dark:to-slate-800 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
 
-//   interface ContactFormData {
-//     name: string;
-//     email: string;
-//     subject: string;
-//     message: string;
-//   }
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
+            <MessageCircle className="w-4 h-4 text-orange-400 mr-2" />
+            <span className="text-orange-400 text-sm font-medium">Get In Touch</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="text-gray-900 dark:text-white">Contact </span>
+            <span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">Us</span>
+          </h2>
+          
+          <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            Ready to discuss your industrial cup needs? We're here to help you find the perfect solution for your business.
+          </p>
+        </motion.div>
 
-//   const handleSubmit: SubmitHandler<ContactFormData> = async (data) => {
-//     // Specify the type here
-//     setIsSubmitting(true);
-//     // Add your form submission logic here
-//     await new Promise((resolve) => setTimeout(resolve, 1000));
-//     console.log(data);
-//     setIsSubmitting(false);
-//   };
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700"
+          >
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">Send us a Message</h3>
+            <form className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base"
+                    placeholder="Your first name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base"
+                    placeholder="Your last name"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base"
+                  placeholder="+252 61 123 4567"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none text-sm sm:text-base"
+                  placeholder="Tell us about your industrial cup requirements..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-orange-500 to-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-orange-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+              >
+                Send Message
+              </button>
+            </form>
+          </motion.div>
 
-//   return (
-//     <section id="contact" className="py-20 bg-background">
-//       <div className="container mx-auto px-4">
-//         {/* Hire Me Section */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.5 }}
-//           className="mb-20"
-//         >
-//           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gradient">
-//             Let&apos;s Build Your Success Story
-//           </h2>
-//           <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-//             I&apos;m currently available for freelance work. Let&apos;s build
-//             something amazing together!
-//           </p>
+          {/* Contact Information & Business Hours */}
+          <div className="space-y-6 sm:space-y-8">
+            {/* Contact Cards */}
+            <div className="space-y-4 sm:space-y-6">
+              {contactInfo.map((contact, index) => {
+                const Icon = contact.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
+                  >
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-orange-400" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1">{contact.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 mb-1 text-sm sm:text-base break-words">{contact.value}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-3">{contact.description}</p>
+                        <a
+                          href={contact.href}
+                          className="inline-flex items-center text-orange-400 hover:text-orange-500 font-semibold transition-colors text-xs sm:text-sm"
+                        >
+                          Learn More
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
 
-//           {/* Services Grid */}
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-//             {services.map((service, index) => (
-//               <motion.div
-//                 key={index}
-//                 initial={{ opacity: 0, y: 20 }}
-//                 animate={{ opacity: 1, y: 0 }}
-//                 transition={{ delay: index * 0.1 }}
-//               >
-//                 <a
-//                   href="https://wa.me/252612995362"
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                 >
-//                   <Card className="relative overflow-hidden group">
-//                     <CardHeader>
-//                       <CardTitle>{service.title}</CardTitle>
-//                       <CardDescription>{service.description}</CardDescription>
-//                     </CardHeader>
-//                     <CardContent>
-//                       <Button className="mt-4 w-full group-hover:bg-primary/90">
-//                         Hire Me
-//                       </Button>
-//                     </CardContent>
-//                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-//                   </Card>{" "}
-//                 </a>
-//               </motion.div>
-//             ))}
-//           </div>
-//         </motion.div>
+            {/* Business Hours */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700"
+            >
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500/20 rounded-xl flex items-center justify-center">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Business Hours</h3>
+              </div>
+              <div className="space-y-2 sm:space-y-3">
+                {businessHours.map((schedule, index) => (
+                  <div key={index} className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+                    <span className="text-gray-600 dark:text-gray-300 font-medium text-sm sm:text-base">{schedule.day}</span>
+                    <span className="text-gray-900 dark:text-white font-semibold text-sm sm:text-base">{schedule.hours}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
 
-//         {/* Contact Grid */}
-//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-//           {/* Contact Information */}
-//           <motion.div
-//             initial={{ opacity: 0, x: -20 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.5 }}
-//             className="space-y-6"
-//           >
-//             <h3 className="text-2xl font-bold mb-8">You can Reach me at</h3>
-//             <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
-//               {contactInfo.map((item, index) => (
-//                 <a
-//                   key={index}
-//                   href={item.link}
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                   className="group"
-//                 >
-//                   <motion.div
-//                     initial={{ opacity: 0, y: 20 }}
-//                     animate={{ opacity: 1, y: 0 }}
-//                     transition={{ delay: index * 0.1 }}
-//                     className="flex items-start space-x-4"
-//                   >
-//                     <div className="p-3 rounded-full bg-primary/10">
-//                       <item.icon className="w-6 h-6 text-primary" />
-//                     </div>
-//                     <div>
-//                       <h4 className="font-medium">{item.title}</h4>
-//                       <p className="text-foreground">{item.value}</p>
-//                       <p className="text-sm text-muted-foreground">
-//                         {item.description}
-//                       </p>
-//                     </div>
-//                   </motion.div>
-//                 </a>
-//               ))}
-//             </div>
-//           </motion.div>
+        {/* Map Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 lg:mb-16"
+        >
+          <div className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500/20 rounded-xl flex items-center justify-center">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Our Location</h3>
+            </div>
+            <div className="bg-gray-200 dark:bg-gray-700 rounded-xl h-48 sm:h-64 flex items-center justify-center">
+              <div className="text-center px-4">
+                <MapPin className="w-8 h-8 sm:w-12 sm:h-12 text-gray-400 mx-auto mb-2 sm:mb-3" />
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg font-medium">Mogadishu, Somalia</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">Interactive map coming soon</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
-//           {/* Contact Form */}
-//           <motion.div
-//             initial={{ opacity: 0, x: 20 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.5 }}
-//             className="bg-card p-8 rounded-lg border border-border"
-//           >
-//             <h3 className="text-2xl font-bold mb-8">Send Message</h3>
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <div className="bg-gradient-to-r from-orange-500 to-blue-500 rounded-2xl p-6 sm:p-8 text-white">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Ready to Get Started?</h3>
+            <p className="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 opacity-90 max-w-2xl mx-auto">
+              Contact us today for a quote or to discuss your industrial cup requirements
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md mx-auto">
+              <a
+                href="tel:+252615091123"
+                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-orange-500 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+              >
+                Call Now
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="mailto:hadafgtc@gmail.com"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-orange-500 transition-all duration-300 text-sm sm:text-base text-center"
+              >
+                Email Us
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
-//             <FormProvider {...methods}>
-//               {" "}
-//               {/* Wrap with FormProvider */}
-//               <form
-//                 onSubmit={methods.handleSubmit(handleSubmit)}
-//                 className="space-y-6"
-//               >
-//                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-//                   <FormItem>
-//                     <FormLabel>Name</FormLabel>
-//                     <FormControl>
-//                       <Input
-//                         placeholder="Your name"
-//                         {...methods.register("name")}
-//                       />
-//                     </FormControl>
-//                   </FormItem>
-//                   <FormItem>
-//                     <FormLabel>Email</FormLabel>
-//                     <FormControl>
-//                       <Input
-//                         type="email"
-//                         placeholder="your@email.com"
-//                         {...methods.register("email")}
-//                       />
-//                     </FormControl>
-//                   </FormItem>
-//                 </div>
-
-//                 <FormItem>
-//                   <FormLabel>Subject</FormLabel>
-//                   <FormControl>
-//                     <Input
-//                       placeholder="Project discussion"
-//                       {...methods.register("subject")}
-//                     />
-//                   </FormControl>
-//                 </FormItem>
-
-//                 <FormItem>
-//                   <FormLabel>Message</FormLabel>
-//                   <FormControl>
-//                     <Textarea
-//                       placeholder="Tell me about your project..."
-//                       className="min-h-[150px]"
-//                       {...methods.register("message")}
-//                     />
-//                   </FormControl>
-//                 </FormItem>
-
-//                 <Button
-//                   type="submit"
-//                   className="w-full"
-//                   disabled={isSubmitting}
-//                 >
-//                   {isSubmitting ? (
-//                     "Sending..."
-//                   ) : (
-//                     <>
-//                       Send Message
-//                       <Send className="ml-2 h-4 w-4" />
-//                     </>
-//                   )}
-//                 </Button>
-//               </form>
-//             </FormProvider>
-//           </motion.div>
-//         </div>
-
-//         {/* FAQ Section */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.5 }}
-//           className="mt-20"
-//         >
-//           <h3 className="text-2xl font-bold text-center mb-12">
-//             Frequently Asked Questions
-//           </h3>
-//           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
-//             {[
-//               {
-//                 q: "What is your typical project timeline?",
-//                 a: "Project timelines vary based on scope and complexity. A typical website project takes 4-8 weeks from start to finish.",
-//               },
-//               {
-//                 q: "Do you offer maintenance services?",
-//                 a: "Yes, I offer ongoing maintenance and support packages to ensure your project stays up-to-date and secure.",
-//               },
-//               {
-//                 q: "What is your payment structure?",
-//                 a: "I typically require a 50% deposit to begin work, with the remaining 50% due upon project completion.",
-//               },
-//               {
-//                 q: "Can you work with existing projects?",
-//                 a: "Yes, I'm experienced in working with existing codebases and can help improve or extend your current project.",
-//               },
-//             ].map((faq, index) => (
-//               <Card key={index} className="bg-card">
-//                 <CardHeader>
-//                   <CardTitle className="text-lg">{faq.q}</CardTitle>
-//                 </CardHeader>
-//                 <CardContent>
-//                   <p className="text-muted-foreground">{faq.a}</p>
-//                 </CardContent>
-//               </Card>
-//             ))}
-//           </div>
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Contact;
+export default Contact;

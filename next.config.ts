@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
         hostname: 'res.cloudinary.com',
       },
     ],
-  },};
+  },
+  experimental: {
+    turbo: {
+      root: './',
+    },
+  },
+};
 
 export default nextConfig;

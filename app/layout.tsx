@@ -5,6 +5,8 @@ import { Quicksand } from "next/font/google";
 import "./globals.css";
 // import { ThemeToggler } from "@/components/ThemeToggler";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WhatsAppChat from "@/components/WhatsAppChat";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -15,9 +17,9 @@ const Jakarta_sans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Husein Hashi - Full Stack Developer",
+  title: "Hadaf Industrial Cups - Premium Manufacturing Solutions",
   description:
-    "Portfolio of Husein Hashi, Full Stack Developer specialized in PHP, Node.js, React, and Flutter",
+    "Leading Somalia's industrial cup manufacturing with precision, quality, and innovation. We transform raw materials into reliable containers that power businesses across the region.",
 };
 export default function RootLayout({
   children,
@@ -35,11 +37,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen ">
             <header className="relative">
               <Navbar />
             </header>
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow pt-16 sm:pt-2">{children}</main>
+            <Footer />
+            <WhatsAppChat />
           </div>
         </ThemeProvider>
 
