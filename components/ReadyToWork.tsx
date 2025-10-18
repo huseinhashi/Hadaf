@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Zap } from "lucide-react";
+import Link from "next/link";
 
 const ReadyToWork = () => {
   const benefits = [
@@ -60,13 +61,13 @@ const ReadyToWork = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md mx-auto">
-              <a
+              <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-orange-500 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
               >
                 Get Quote
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
               <a
                 href="tel:+252615091123"
                 className="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-orange-500 transition-all duration-300 text-sm sm:text-base text-center"

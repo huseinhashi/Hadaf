@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Package, Coffee, Factory, Shield, Target, Cog, Wrench, CheckCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
 
 const ProductsPage = () => {
@@ -188,12 +189,12 @@ const ProductsPage = () => {
               We specialize in creating custom industrial cup solutions tailored to your specific requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/contact"
                 className="px-8 py-4 bg-white text-orange-500 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Request Custom Quote
-              </a>
+              </Link>
               <a
                 href="tel:+252615091123"
                 className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-orange-500 transition-all duration-300"

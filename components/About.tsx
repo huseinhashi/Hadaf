@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Factory, Shield, Award, Users, CheckCircle, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const About = () => {
   const features = [
@@ -185,13 +186,13 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
             >
-              <a
+              <Link
                 href="/about"
                 className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Learn More About Our Process
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </motion.div>
         </motion.div>
         </div>

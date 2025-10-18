@@ -50,12 +50,12 @@ const Navbar = () => {
 
           {/* Right buttons */}
           <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
-            <a href="/contact" className={`px-3 py-1.5 lg:px-4 lg:py-2 ${theme === "dark" ? "bg-orange-500 text-white" : "bg-blue-500 text-white"} rounded-full hover:bg-orange-600 hover:text-white text-xs lg:text-sm font-medium transition-colors`}>
+            <Link href="/contact" className={`px-3 py-1.5 lg:px-4 lg:py-2 ${theme === "dark" ? "bg-orange-500 text-white" : "bg-blue-500 text-white"} rounded-full hover:bg-orange-600 hover:text-white text-xs lg:text-sm font-medium transition-colors`}>
               Get Your Now
-            </a>
-            <a href="/contact" className="px-3 py-1.5 lg:px-4 lg:py-2 bg-transparent border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white text-xs lg:text-sm font-medium transition-colors">
+            </Link>
+            <Link href="/contact" className="px-3 py-1.5 lg:px-4 lg:py-2 bg-transparent border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white text-xs lg:text-sm font-medium transition-colors">
               Contact
-            </a>
+            </Link>
             <ThemeToggle />
           </div>
 
@@ -91,12 +91,12 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="mt-3 border-t border-gray-100 dark:border-gray-700 pt-3 space-y-2">
-              <a href="/contact" className="w-full px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 text-sm font-medium transition-colors block text-center">
+              <Link href="/contact" className="w-full px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 text-sm font-medium transition-colors block text-center">
                 Get Your Now
-              </a>
-              <a href="/contact" className="w-full px-4 py-2 bg-transparent border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white text-sm font-medium transition-colors block text-center">
+              </Link>
+              <Link href="/contact" className="w-full px-4 py-2 bg-transparent border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white text-sm font-medium transition-colors block text-center">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>

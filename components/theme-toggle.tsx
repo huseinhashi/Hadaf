@@ -6,18 +6,20 @@ import { motion } from "framer-motion";
 
 const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <div className="relative p-2 rounded-xl bg-gray-100 dark:bg-gray-800 w-10 h-10"></div>
+    );
   }
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -37,9 +39,9 @@ const ThemeToggle = () => {
           viewBox="0 0 24 24"
           initial={false}
           animate={{
-            opacity: theme === "dark" ? 0 : 1,
-            rotate: theme === "dark" ? 180 : 0,
-            scale: theme === "dark" ? 0.8 : 1,
+            opacity: resolvedTheme === "dark" ? 0 : 1,
+            rotate: resolvedTheme === "dark" ? 180 : 0,
+            scale: resolvedTheme === "dark" ? 0.8 : 1,
           }}
           transition={{ duration: 0.3 }}
         >
@@ -59,9 +61,9 @@ const ThemeToggle = () => {
           viewBox="0 0 24 24"
           initial={false}
           animate={{
-            opacity: theme === "dark" ? 1 : 0,
-            rotate: theme === "dark" ? 0 : -180,
-            scale: theme === "dark" ? 1 : 0.8,
+            opacity: resolvedTheme === "dark" ? 1 : 0,
+            rotate: resolvedTheme === "dark" ? 0 : -180,
+            scale: resolvedTheme === "dark" ? 1 : 0.8,
           }}
           transition={{ duration: 0.3 }}
         >

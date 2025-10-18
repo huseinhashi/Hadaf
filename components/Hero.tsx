@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Coffee, Cog, Wrench, Package, Factory, Zap, Shield, Target } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
   const backgroundIcons = [
@@ -43,7 +44,19 @@ const Hero = () => {
             muted
             loop
             playsInline
+            preload="none"
             className="w-full h-full object-cover"
+            poster="/images/img_1.jpg"
+            onLoadStart={() => {
+              // Start loading video when user interacts or after a delay
+              setTimeout(() => {
+                const video = document.querySelector('video');
+                if (video) {
+                  video.preload = 'auto';
+                  video.load();
+                }
+              }, 1000);
+            }}
           >
             <source src="/Intro.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -107,19 +120,18 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight"
             >
-<span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">Hadaf Industrial Cups</span>
+<span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Hadaf Industrial Cups</span>
 <br />
-              <span className="text-gray-700 dark:text-gray-300">Where <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">precision</span> meets <span className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">production</span>
-              </span>
+              <span className="text-gray-700 dark:text-gray-300">Where precision meets production</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+              className="text-xs sm:text-sm md:text-base lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed"
             >
               From concept to container, we manufacture industrial cups that exceed expectations with uncompromising quality for Somali businesses.
             </motion.p>
@@ -131,12 +143,12 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4"
             >
              
-              <a 
+              <Link 
                 href="/contact"
-                className="group px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3 rounded-full bg-white dark:bg-gray-800 border border-orange-500 text-orange-600 dark:text-orange-400 font-semibold hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base shadow-lg hover:shadow-xl"
+                className="group px-3 sm:px-4 md:px-5 lg:px-6 py-2 sm:py-2.5 md:py-2.5 rounded-full bg-white dark:bg-gray-800 border border-orange-500 text-orange-600 dark:text-orange-400 font-semibold hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-sm shadow-lg hover:shadow-xl"
               >
                 Order Now
-              </a>
+              </Link>
             </motion.div>
           </div>
         </motion.div>
