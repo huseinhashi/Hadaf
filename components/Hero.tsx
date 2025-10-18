@@ -44,19 +44,9 @@ const Hero = () => {
             muted
             loop
             playsInline
-            preload="none"
+            preload="metadata"
             className="w-full h-full object-cover"
-            poster="/images/img_1.jpg"
-            onLoadStart={() => {
-              // Start loading video when user interacts or after a delay
-              setTimeout(() => {
-                const video = document.querySelector('video');
-                if (video) {
-                  video.preload = 'auto';
-                  video.load();
-                }
-              }, 1000);
-            }}
+            poster="/images/img_4.jpg"
           >
             <source src="/Intro.mp4" type="video/mp4" />
             Your browser does not support the video tag.
